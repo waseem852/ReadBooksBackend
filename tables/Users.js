@@ -13,14 +13,12 @@ var table = azureMobileApps.table();
 
 // Configure specific code when the client does a request
 // READ - only return records belonging to the authenticated user
-table.read(function (context) {
-  context.query.where({ userId: context.user.id });
+table.read(function (context) {  
   return context.execute();
 });
 
 // CREATE - add or overwrite the userId based on the authenticated user
-table.insert(function (context) {
-  context.item.userId = context.user.id;
+table.insert(function (context) {  
   return context.execute();
 });
 
